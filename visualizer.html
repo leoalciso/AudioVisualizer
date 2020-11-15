@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="visualizer.css">
+    <script src="visualizer.js"></script>
+    <title>Document</title>
+    <style type="text/css">  
+        body { margin:0; }  
+    </style>  
+</head>
+<body>
+    <div id="content">
+        <canvas id="canvas"></canvas>
+        <label>MP3:</label>
+        <input type="file" id="song" accept="audio/*" />
+        <label >Background:</label>
+        <select id="image">
+            <option value="1">Black</option>
+            <option value="2">Retro</option>
+            <option value="3">TEMP</option>
+            <option value="4">TEMP</option>
+          </select>
+        <label>Bit Frequency</label>
+        <select id="frequency">
+            <option value="256">256</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+        </select>
+        
+
+        <audio id="audio" controls></audio>
+
+      </div>
+</body>
+</html>
