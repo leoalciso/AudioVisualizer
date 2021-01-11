@@ -4,8 +4,6 @@ window.onload = function() {
     var audio = document.getElementById("audio");
     var image = document.getElementById("image");
     var state = 1;
-    var frequency = document.getElementById("frequency");
-    var freqstate = 1;
     var img = new Image();
     var canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -16,28 +14,6 @@ window.onload = function() {
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     
-    frequency.onchange = function() {
-      console.log("new frequency");
-      if(frequency.value == 256){
-        freqstate = 1;
-      }else if(frequency.value == 512){
-        freqstate = 2;
-      }
-      else if(frequency.value == 1024){
-        freqstate = 3
-      }
-      file.onchange;
-    }
-
-    function freq(){
-      if(freqstate == 1){
-        return 256;
-      }else if(freqstate == 2){
-        return 512;
-      }else{
-        return 1024;
-      }
-    }
 
     image.onchange = function() {
       console.log("new image");
@@ -73,7 +49,7 @@ window.onload = function() {
       src.connect(analyser);
       analyser.connect(context.destination);
   
-      analyser.fftSize = freq();
+      analyser.fftSize = 256;
   
       var bufferLength = analyser.frequencyBinCount;
   
@@ -90,7 +66,6 @@ window.onload = function() {
   
         analyser.getByteFrequencyData(dataArray);
         background();
-        analyser.fftSize = freq();
   
         for (var i = 0; i < bufferLength; i++) {
           barHeight = dataArray[i];
